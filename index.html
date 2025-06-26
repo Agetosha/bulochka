@@ -1,86 +1,250 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Булочка — кофейня в Ново-Ленино</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <div class="logo">Булочка</div>
-    <nav>
-      <a href="#menu">Меню</a>
-      <a href="#about">О нас</a>
-      <a href="#contacts">Контакты</a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Булочка — кофейня в Ново-Ленино</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Булочка</div>
+      <nav>
+        <a href="#menu">Меню</a>
+        <a href="#about">О нас</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Свежая выпечка и кофе в Ново-Ленино</h1>
-      <p>Каждый день с 08:00 до 21:00</p>
-      <a class="btn large" href="#menu">Посмотреть меню</a>
-    </div>
-  </section>
-
-  <section class="section" id="menu">
-    <h2>Меню</h2>
-    <div class="menu-grid">
-      <div class="menu-item">
-        <img src="https://via.placeholder.com/200x150?text=Капучино" alt="Капучино">
-        <h3>Капучино</h3>
-        <p>120 ₽</p>
-        <button class="btn">Заказать</button>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Булочка</h1>
+        <h2>Свежая выпечка и кофе в Ново-Ленино</h2>
+        <p>Каждый день с 08:00 до 21:00</p>
+        <a class="btn large" href="#menu">Посмотреть меню</a>
       </div>
-      <div class="menu-item">
-        <img src="https://via.placeholder.com/200x150?text=Булочка+с+корицей" alt="Булочка с корицей">
-        <h3>Булочка с корицей</h3>
-        <p>90 ₽</p>
-        <button class="btn">Заказать</button>
+    </section>
+
+    <section class="section" id="menu">
+      <h2>Меню</h2>
+      <div class="menu-category-row">
+        <h3 class="menu-category">Напитки</h3>
+        <div class="menu-burger" id="menu-burger-drinks">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
-      <div class="menu-item">
-        <img src="https://via.placeholder.com/200x150?text=Американо" alt="Американо">
-        <h3>Американо</h3>
-        <p>100 ₽</p>
-        <button class="btn">Заказать</button>
+      <div class="menu-grid drinks">
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Эспрессо"
+            alt="Эспрессо"
+          />
+          <h3>Эспрессо</h3>
+          <p>80 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Чай+черный"
+            alt="Чай черный"
+          />
+          <h3>Чай черный</h3>
+          <p>70 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Чай+зелёный"
+            alt="Чай зелёный"
+          />
+          <h3>Чай зелёный</h3>
+          <p>70 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Американо"
+            alt="Американо"
+          />
+          <h3>Американо</h3>
+          <p>100 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Молочный+коктейль"
+            alt="Молочный коктейль"
+          />
+          <h3>Молочный коктейль</h3>
+          <p>110 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Капучино"
+            alt="Капучино"
+          />
+          <h3>Капучино</h3>
+          <p>120 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Латте"
+            alt="Латте"
+          />
+          <h3>Латте</h3>
+          <p>130 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Флэт+уайт"
+            alt="Флэт уайт"
+          />
+          <h3>Флэт уайт</h3>
+          <p>140 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
       </div>
-      <div class="menu-item">
-        <img src="https://via.placeholder.com/200x150?text=Комбо+завтрак" alt="Комбо завтрак">
-        <h3>Комбо-завтрак</h3>
-        <p>200 ₽</p>
-        <button class="btn">Заказать</button>
+
+      <div class="menu-category-row">
+        <h3 class="menu-category">Еда</h3>
+        <div class="menu-burger" id="menu-burger-food">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
-    </div>
-  </section>
+      <div class="menu-grid food">
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Печенье+овсяное"
+            alt="Печенье овсяное"
+          />
+          <h3>Печенье овсяное</h3>
+          <p>40 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Сырник"
+            alt="Сырник"
+          />
+          <h3>Сырник</h3>
+          <p>60 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Пирожок+с+яблоком"
+            alt="Пирожок с яблоком"
+          />
+          <h3>Пирожок с яблоком</h3>
+          <p>80 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Булочка+с+корицей"
+            alt="Булочка с корицей"
+          />
+          <h3>Булочка с корицей</h3>
+          <p>90 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Морковный+кекс"
+            alt="Морковный кекс"
+          />
+          <h3>Морковный кекс</h3>
+          <p>90 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Круассан"
+            alt="Круассан"
+          />
+          <h3>Круассан</h3>
+          <p>100 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Сэндвич+с+ветчиной"
+            alt="Сэндвич с ветчиной"
+          />
+          <h3>Сэндвич с ветчиной</h3>
+          <p>150 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+        <div class="menu-item">
+          <img
+            src="https://via.placeholder.com/200x150?text=Комбо+завтрак"
+            alt="Комбо завтрак"
+          />
+          <h3>Комбо-завтрак</h3>
+          <p>200 ₽</p>
+          <button class="btn">Заказать</button>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>О нас</h2>
+    </section>
+    <section class="section" id="about">
+      <div class="about-block">
+        <p>Мы — уютная кофейня "Булочка" в самом сердце Ново-Ленино.</p>
+        <p>
+          Каждое утро свежая выпечка и ароматный кофе ждут вас с 8:00 до 21:00.
+        </p>
+        <p>Дружелюбная атмосфера и забота о каждом клиенте — наш приоритет!</p>
+      </div>
+    </section>
 
-  <section class="section" id="about">
-    <h2>О нас</h2>
-    <div class="about-block">
-      <p>Мы — уютная кофейня "Булочка" в самом сердце Ново-Ленино.</p>
-      <p>Каждое утро свежая выпечка и ароматный кофе ждут вас с 8:00 до 21:00.</p>
-      <p>Дружелюбная атмосфера и забота о каждом клиенте — наш приоритет!</p>
-    </div>
-  </section>
+    <section class="section" id="contacts">
+      <h2>Контакты</h2>
+      <div class="contacts-block">
+        <p>
+          <strong>Телефон:</strong>
+          <a href="tel:+79140001788">+7‒914‒000‒17‒88</a>
+        </p>
+        <p>
+          <strong>Адрес:</strong>
+          Иркутск, ул. Розы Люксембург, 176/4, павильон (Ново-Ленино, Ленинский
+          район)
+        </p>
+        <p>
+          <strong>Время работы:</strong>
+          Ежедневно с 08:00 до 21:00
+        </p>
+        <a
+          class="btn"
+          href="https://www.google.com/maps/search/?api=1&query=Иркутск,+ул.+Розы+Люксембург,+176%2F4"
+          target="_blank"
+        >
+          Открыть в Google Maps
+        </a>
+      </div>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2341.2903624659895!2d104.19582527730456!3d52.2843791719777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5da83bbd6b853e85%3A0xa70c14582d354eb!2z0JHQvtC70YzRiNCw0YHRgtC40Y8sIDE3Ni80LCDQmtC-0YDQvNCw0YDQvdCw0Y8g0L7QsdC70LDRgdGC0YwsINCn0YHRgtGA0L7QstCwLCA2NjQwNDA!5e0!3m2!1sru!2sru!4v1719313146556!5m2!1sru!2sru"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
 
-  <section class="section" id="contacts">
-    <h2>Контакты</h2>
-    <div class="contacts-block">
-      <p><strong>Телефон:</strong> <a href="tel:+79140001788">+7‒914‒000‒17‒88</a></p>
-      <p><strong>Адрес:</strong> Иркутск, ул. Розы Люксембург, 176/4, павильон (Ново-Ленино, Ленинский район)</p>
-      <p><strong>Время работы:</strong> Ежедневно с 08:00 до 21:00</p>
-      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Иркутск,+ул.+Розы+Люксембург,+176%2F4" target="_blank">Открыть в Google Maps</a>
-    </div>
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2341.2903624659895!2d104.19582527730456!3d52.2843791719777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5da83bbd6b853e85%3A0xa70c14582d354eb!2z0JHQvtC70YzRiNCw0YHRgtC40Y8sIDE3Ni80LCDQmtC-0YDQvNCw0YDQvdCw0Y8g0L7QsdC70LDRgdGC0YwsINCn0YHRgtGA0L7QstCwLCA2NjQwNDA!5e0!3m2!1sru!2sru!4v1719313146556!5m2!1sru!2sru" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-  </section>
-
-  <footer>
-    © Булочка, 2025
-  </footer>
-
-  <script src="script.js"></script>
-</body>
+    <footer>© Булочка, 2025</footer>
+    <script src="script.js"></script>
+  </body>
 </html>
