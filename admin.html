@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Панель управления - Булочка</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles_admin.css">
+  <!-- Подключаем иконки -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+  .admin-page {
+  background-color: #fff8f2;
+  min-height: 100vh;
+}
+
+.admin-title {
+  color: #b85c1d;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f3e6db;
+  display: inline-block;
+}
+
+.admin-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+/* Формы */
+.admin-form {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #6d4c2c;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #f3e6db;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #e8c4b8;
+  box-shadow: 0 0 0 2px rgba(232, 196, 184, 0.3);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+</style>
+<body class="admin-page">
+  <header class="admin-header">
+    <nav class="admin-nav">
+      <a href="admin.html"><i class="fas fa-utensils"></i> Панель управления</a>
+      <a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Выйти</a>
+    </nav>
+  </header>
+
+  <main class="admin-container">
+    <h1 class="admin-title">Управление часами работы</h1>
+    <div class="admin-form">
+      <div class="form-group">
+        <label for="open-time">Время открытия:</label>
+        <input type="number" id="open-time" min="0" max="23" value="8">
+      </div>
+      
+      <div class="form-group">
+        <label for="close-time">Время закрытия:</label>
+        <input type="number" id="close-time" min="0" max="23" value="21">
+      </div>
+      
+      <div class="form-actions">
+        <button class="btn btn-primary" id="save-hours">Сохранить время</button>
+      </div>
+    </div>
+    
+    <h1 class="admin-title">Управление меню</h1>
+    <div id="menu-container"></div>
+  </main>
+
+  <script src="admin.js"></script>
+  <script>
+    // Проверка авторизации
+    const adminToken = localStorage.getItem('admin_token');
+    if (!adminToken) {
+        console.log('No token found, redirecting to login');
+        window.location.href = 'login.html';
+    } else {
+        console.log('Token found:', adminToken);
+    }
+
+    // Выход из системы
+    document.getElementById('logout').addEventListener('click', function(e) {
+        e.preventDefault();
+        localStorage.removeItem('admin_token');
+        window.location.href = 'index.html';
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+  // Загрузка текущего времени
+  fetch('php/get_hours.php')
+    .then(response => response.json())
+    .then(data => {
+      const timeMatch = data.hero.match(/(\d+):00/g);
+      if (timeMatch && timeMatch.length === 2) {
+        document.getElementById('open-time').value = timeMatch[0].split(':')[0];
+        document.getElementById('close-time').value = timeMatch[1].split(':')[0];
+      }
+    });
+  
+  // Сохранение
+  document.getElementById('save-hours').addEventListener('click', function() {
+    const open = document.getElementById('open-time').value;
+    const close = document.getElementById('close-time').value;
+    
+    fetch('php/save_hours.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + localStorage.getItem('admin_token')
+      },
+      body: JSON.stringify({
+        open: open,
+        close: close
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert('Время работы обновлено!');
+        location.reload();
+      }
+    });
+  });
+});
+  </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+{
+    "drinks": [
+        {
+            "id": 1,
+            "name": "Эспрессо",
+            "price": 80,
+            "volume": "250 мл",
+            "image": "https:\/\/galaktika29.ru\/upload\/iblock\/db6\/k0ta8ki954k0l5qrh3rt4214nfa40rep.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Чай черный",
+            "price": 70,
+            "image": "https:\/\/sakiproducts.com\/cdn\/shop\/articles\/Benefits-of-Drinking-Black-Tea-thumbnail_800x800.jpg?v=1660832924"
+        },
+        {
+            "id": 3,
+            "name": "Чай зелёный",
+            "price": 70,
+            "volume": "300 мл",
+            "image": "https:\/\/img.freepik.com\/premium-photo\/cups-green-tea-table-wooden-background_55883-7357.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Американо",
+            "price": 100,
+            "volume": "200 мл",
+            "image": "https:\/\/shaden.kz\/wp-content\/uploads\/2022\/01\/Classic-Coffee.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Молочный коктейль",
+            "price": 105,
+            "volume": "350 мл",
+            "image": "https:\/\/img.freepik.com\/premium-photo\/rainbow-sprinkles-vanilla-milk-shake_247985-10.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Капучино",
+            "price": 120,
+            "volume": "250 мл",
+            "image": "https:\/\/www.nescafe.kz\/sites\/default\/files\/2024-09\/GettyImages-1434303312-6.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Латте",
+            "price": 130,
+            "volume": "300 мл",
+            "image": "https://avatars.mds.yandex.net/i?id=c736ba217d820784baf6a1670069759b_l-9986976-images-thumbs&n=13"
+        },
+        {
+            "id": 8,
+            "name": "Флэт уайт",
+            "price": 140,
+            "volume": "200 мл",
+            "image": "https://avatars.mds.yandex.net/i?id=94770d2d02d27fdfe8e20ca4f7ec0419_l-12569904-images-thumbs&n=13"
+        }
+    ],
+    "food": [
+        {
+            "id": 9,
+            "name": "Печенье овсяное",
+            "price": 40,
+            "weight": "50 г",
+            "image": "https://avatars.mds.yandex.net/i?id=19a252a24606d22ebc1083fb5b6621aa_l-5888827-images-thumbs&ref=rim&n=13&w=800&h=800"
+        },
+        {
+            "id": 10,
+            "name": "Сырник",
+            "price": 60,
+            "weight": "100 г",
+            "image": "https://avatars.mds.yandex.net/i?id=82a00863ed3430d80c438339c343d4d6_l-5258284-images-thumbs&n=13.jpg"
+        },
+        {
+            "id": 11,
+            "name": "Пирожок с яблоком",
+            "price": 80,
+            "weight": "120 г",
+            "image": "https://avatars.mds.yandex.net/get-altay/10963815/2a0000018d380ce5a4320038779105f95f43/XXL_height"
+        },
+        {
+            "id": 12,
+            "name": "Булочка с корицей",
+            "price": 90,
+            "weight": "100 г",
+            "image": "https://ssnab.ru/upload/iblock/a5d/28q6kt42436qtxk30gcw4ocyijjbdpbl.jpg"
+        },
+        {
+            "id": 13,
+            "name": "Морковный кекс",
+            "price": 90,
+            "weight": "120 г",
+            "image": "https://avatars.mds.yandex.net/get-altay/1938975/2a0000017256bc029351d243fdc11c087625/XXXL"
+        },
+        {
+            "id": 14,
+            "name": "Круассан",
+            "price": 100,
+            "weight": "90 г",
+            "image": "https://static.tildacdn.com/tild3832-3362-4965-a436-623739633933/DSC04788_1.jpg"
+        },
+        {
+            "id": 15,
+            "name": "Сэндвич с ветчиной",
+            "price": 150,
+            "weight": "200 г",
+            "image": "https://avatars.mds.yandex.net/get-altay/6506385/2a0000018a6a3e323467b5d6791d3c1d2ec2/XXL_height"
+        },
+        {
+            "id": 16,
+            "name": "Комбо-завтрак",
+            "price": 200,
+            "weight": "350 г",
+            "image": "https://avatars.mds.yandex.net/i?id=ba11e48fecba5fcdefafb5907b3edb6a_l-10150478-images-thumbs&n=13"
+        }
+    ]
+}

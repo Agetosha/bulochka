@@ -1,0 +1,198 @@
+/* payment.css - Обновлённые стили в едином стиле с основным сайтом */
+
+/* Основные стили страницы */
+body {
+    background-color: #fff8f2;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #d2691e;
+}
+
+/* Контейнер страницы оплаты */
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(210, 105, 30, 0.08);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container h1 {
+    color: #d2691e;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+/* Секция с заказом */
+.order-summary {
+    background: #fdf6f0;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid #f3e6db;
+}
+
+.order-summary h2 {
+    color: #b85c1d;
+    margin-top: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.order-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+#order-total {
+    font-weight: bold;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    text-align: right;
+    color: #6d4c2c;
+}
+
+/* Способы оплаты */
+.payment-methods h2 {
+    color: #b85c1d;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.payment-method {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #f3e6db;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #fffdfa;
+}
+
+.payment-method:hover {
+    transform: translateY(-2px);
+    border-color: #e8c4b8;
+    background: #fdf6f0;
+    box-shadow: 0 4px 12px rgba(210, 105, 30, 0.1);
+}
+
+.payment-method.selected {
+    border-color: #e8c4b8;
+    background: #fdf6f0;
+    box-shadow: 0 0 0 2px rgba(232, 196, 184, 0.5);
+}
+
+.payment-method input[type="radio"] {
+    margin-right: 1rem;
+    accent-color: #d2691e;
+}
+
+.payment-method div {
+    flex: 1;
+}
+
+.payment-method h3 {
+    color: #b85c1d;
+    margin: 0 0 0.3rem 0;
+    font-size: 1.1rem;
+}
+
+.payment-method p {
+    color: #6d4c2c;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.payment-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+    object-fit: contain;
+}
+
+/* Кнопка оплаты */
+#confirm-payment {
+    width: 100%;
+    padding: 1rem;
+    background-color: rgb(248, 211, 107);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #333;
+    font-weight: bold;
+    margin-top: 1rem;
+    box-shadow: 0 2px 8px rgba(210, 105, 30, 0.1);
+}
+
+#confirm-payment:hover {
+    background-color: #e0b468;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(210, 105, 30, 0.2);
+}
+
+#confirm-payment:active {
+    transform: translateY(0);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .payment-method {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .payment-icon {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+}
