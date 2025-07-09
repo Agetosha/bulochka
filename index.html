@@ -2,42 +2,49 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Булочка — кофейня в Ново-Ленино</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="preload" href="php/menu.json" as="fetch" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles_order.css" />
   </head>
   <body>
     <header>
-      <div class="logo">Булочка</div>
+      <div class="header-container">
+        <div class="logo">Булочка</div>
+        <button class="mobile-menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
       <nav>
         <a href="#menu">Меню</a>
         <a href="#about">О нас</a>
+        <a href="#reviews">Отзывы</a>
         <a href="#contacts">Контакты</a>
+        <a href="#" id="login-link">Войти</a>
       </nav>
+      <div class="overlay"></div>
     </header>
-
-    <form action="order.php" method="POST">
-  <input type="text" name="name" placeholder="Ваше имя" required>
-  <input type="text" name="phone" placeholder="Телефон или Telegram" required>
-  <textarea name="comment" placeholder="Комментарий или заказ..."></textarea>
-  <button type="submit">Оформить заказ</button>
-</form>
 
     <section class="hero">
       <div class="hero-content">
         <h1>Булочка</h1>
         <h2>Свежая выпечка и кофе в Ново-Ленино</h2>
-        <p>Каждый день с 08:00 до 21:00</p>
+        <p id="working-hours-text">Каждый день с 08:00 до 21:00</p>
         <a class="btn large" href="#menu">Посмотреть меню</a>
       </div>
     </section>
 
     <section class="section" id="menu">
       <h2>Меню</h2>
+
+      <!-- Секция напитков -->
       <div class="menu-category-row">
         <h3 class="menu-category">Напитки</h3>
         <div class="menu-burger" id="menu-burger-drinks">
@@ -47,80 +54,18 @@
         </div>
       </div>
       <div class="menu-grid drinks">
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Эспрессо"
-            alt="Эспрессо"
-          />
-          <h3>Эспрессо</h3>
-          <p>80 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Чай+черный"
-            alt="Чай черный"
-          />
-          <h3>Чай черный</h3>
-          <p>70 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Чай+зелёный"
-            alt="Чай зелёный"
-          />
-          <h3>Чай зелёный</h3>
-          <p>70 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Американо"
-            alt="Американо"
-          />
-          <h3>Американо</h3>
-          <p>100 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Молочный+коктейль"
-            alt="Молочный коктейль"
-          />
-          <h3>Молочный коктейль</h3>
-          <p>110 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Капучино"
-            alt="Капучино"
-          />
-          <h3>Капучино</h3>
-          <p>120 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Латте"
-            alt="Латте"
-          />
-          <h3>Латте</h3>
-          <p>130 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Флэт+уайт"
-            alt="Флэт уайт"
-          />
-          <h3>Флэт уайт</h3>
-          <p>140 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
+        <!-- 8 плейсхолдеров для напитков -->
+        <div class="menu-item-skeleton"></div>
+        <div class="menu-item-skeleton"></div>
+        <div class="menu-item-skeleton"></div>
+        <div class="menu-item-skeleton"></div>
+        <div class="menu-item-skeleton"></div>
+        <div class="menu-item-skeleton"></div>
+        <div class="menu-item-skeleton"></div>
+        <div class="menu-item-skeleton"></div>
       </div>
 
+      <!-- Секция еды -->
       <div class="menu-category-row">
         <h3 class="menu-category">Еда</h3>
         <div class="menu-burger" id="menu-burger-food">
@@ -130,90 +75,120 @@
         </div>
       </div>
       <div class="menu-grid food">
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Печенье+овсяное"
-            alt="Печенье овсяное"
-          />
-          <h3>Печенье овсяное</h3>
-          <p>40 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Сырник"
-            alt="Сырник"
-          />
-          <h3>Сырник</h3>
-          <p>60 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Пирожок+с+яблоком"
-            alt="Пирожок с яблоком"
-          />
-          <h3>Пирожок с яблоком</h3>
-          <p>80 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Булочка+с+корицей"
-            alt="Булочка с корицей"
-          />
-          <h3>Булочка с корицей</h3>
-          <p>90 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Морковный+кекс"
-            alt="Морковный кекс"
-          />
-          <h3>Морковный кекс</h3>
-          <p>90 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Круассан"
-            alt="Круассан"
-          />
-          <h3>Круассан</h3>
-          <p>100 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Сэндвич+с+ветчиной"
-            alt="Сэндвич с ветчиной"
-          />
-          <h3>Сэндвич с ветчиной</h3>
-          <p>150 ₽</p>
-          <button class="btn">Заказать</button>
-        </div>
-        <div class="menu-item">
-          <img
-            src="https://via.placeholder.com/200x150?text=Комбо+завтрак"
-            alt="Комбо завтрак"
-          />
-          <h3>Комбо-завтрак</h3>
-          <p>200 ₽</p>
-          <button class="btn">Заказать</button>
+        <!-- 8 плейсхолдеров для еды -->
+        <div class="menu-item-skeleton"></div>
+        <div class="menu-item-skeleton"></div>
+        <div class="menu-item-skeleton"></div>
+        <div class="menu-item-skeleton"></div>
+        <div class="menu-item-skeleton"></div>
+        <div class="menu-item-skeleton"></div>
+        <div class="menu-item-skeleton"></div>
+        <div class="menu-item-skeleton"></div>
+      </div>
+    </section>
+    
+    <section class="section" id="about">
+      <h2>О нас</h2>
+      <div class="about-bg-container">
+        <div class="about-block">
+          <p>Мы — уютная кофейня "Булочка" в самом сердце Ново-Ленино.</p>
+          <p id="working-hours-about">Каждое утро свежая выпечка и ароматный кофе ждут вас с 8:00 до 21:00.</p>
+          <p>Дружелюбная атмосфера и забота о каждом клиенте — наш приоритет!</p>
         </div>
       </div>
     </section>
-    <section class="section">
-      <h2>О нас</h2>
-    </section>
-    <section class="section" id="about">
-      <div class="about-block">
-        <p>Мы — уютная кофейня "Булочка" в самом сердце Ново-Ленино.</p>
-        <p>
-          Каждое утро свежая выпечка и ароматный кофе ждут вас с 8:00 до 21:00.
-        </p>
-        <p>Дружелюбная атмосфера и забота о каждом клиенте — наш приоритет!</p>
+
+    <section class="section" id="reviews">
+      <h2>Отзывы</h2>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-author">Евгений Кулагин</div>
+          <div class="review-stats">24 отзыва</div>
+        </div>
+        <div class="review-date">2 июня 2025</div>
+        <div class="review-text">Невероятно отличное место , кофе невероятно вкусный и за такое цена не кусается , берем уже ни раз и с каждым разом все лучше и лучше делают кофе. Атмосфера очень приятная , не чувствуется негатива. Персонал приятный и доброжелательный, видно , что давления от руководства в сторону персонала нет. Желаю процветание , потому что в Ново-Ленино альтернативы , что касается кофе не имеется. Напитков очень много и выбор такой , что разбегаются глаза. Брали напитков сначала обычные, попробовали латте нутелла и дубайский шоколад и были просто в восторге 🙏🏻</div>
+      </div>
+      
+      <div class="reviews-container">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-author">Оксана Иванова</div>
+            <div class="review-stats">2 отзыва</div>
+          </div>
+          <div class="review-date">27 июня 2025</div>
+          <div class="review-image">
+            <img src="images/review-0.png" alt="Кружка из кофейни">
+          </div>
+          <div class="review-text">Отличное начало рабочего дня😉 вкусный, бодрящий кофе, уютный интерьер и позитивный бариста👍🥰 что ещё нужно?</div>
+        </div>
+    
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-author">Татьяна Яхина</div>
+            <div class="review-stats">4 отзыва</div>
+          </div>
+          <div class="review-date">21 июня 2025, отредактирован</div>
+          <div class="review-image">
+            <img src="images/review-1.png" alt="Кружка из кофейни">
+          </div>
+          <div class="review-text">Чистая уютная кофейня для тихой беседы. Приятный бариста и вкусный шоколадный чизкейк) Повторно пришла через 2 месяца, что приятно - впечатление не изменилось. На этот раз пришёлся по сердцу напиток "Мексиканские каникулы" (В жару отличный вариант) и панини с индейкой 😍</div>
+        </div>
+    
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-author">Kira</div>
+            <div class="review-stats">4 отзыва</div>
+          </div>
+          <div class="review-date">24 мая 2025</div>
+          <div class="review-image">
+            <img src="images/review-2.png" alt="Кружка из кофейни">
+          </div>
+          <div class="review-text">Каждый день ходила мимо кофейни после работы, из интереса решила зайти. Внутри очень уютная атмосфера, вкусный вишневый милкшейк и работает очень приятная девушка.</div>
+        </div>
+    
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-author">Дарья Иванова</div>
+            <div class="review-stats">73 отзыва</div>
+          </div>
+          <div class="review-date">23 мая 2025</div>
+          <div class="review-image">
+            <img src="images/review-3.png" alt="Кружка из кофейни">
+          </div>
+          <div class="review-text">Добрый день! Увидела новую кофейню, не смогла пройти мимо! Вкусный кофе, вежливая девушка, уютное место 💖 Рекомендую👍</div>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-author">Наталья Машукова</div>
+            <div class="review-stats">8 отзывов</div>
+          </div>
+          <div class="review-date">20 апреля 2025</div>
+          <div class="review-image">
+            <img src="images/review-5.png" alt="Кружка из кофейни">
+          </div>
+          <div class="review-text">
+            Чисто случайно наткнулась на кофейню Булочка, а так как я любитель кофе, не смогла удержаться и не зайти. 
+            Кофе отменный, вкусный, с превосходным ароматом 💗 Всем рекомендую! 
+            Так же приобрела кружку для авто - очень удобно ✅
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <div class="review-author">Виктория Карелина</div>
+            <div class="review-stats">5 отзывов</div>
+          </div>
+          <div class="review-date">4 июня 2025</div>
+          <div class="review-image">
+            <img src="images/review-4.png" alt="Кружка из кофейни">
+          </div>
+          <div class="review-text">Любимая кофейня ❤️‍🔥 сильно вкусно всееееее!</div>
+        </div>
+      </div>
+      <div class="all-reviews-btn-container">
+        <a href="https://2gis.ru/irkutsk/firm/70000001100200867/tab/reviews" class="btn all-reviews-btn" target="_blank">
+          Посмотреть все отзывы
+        </a>
       </div>
     </section>
 
@@ -229,10 +204,7 @@
           Иркутск, ул. Розы Люксембург, 176/4, павильон (Ново-Ленино, Ленинский
           район)
         </p>
-        <p>
-          <strong>Время работы:</strong>
-          Ежедневно с 08:00 до 21:00
-        </p>
+        <p id="working-hours-contacts">Ежедневно с 08:00 до 21:00</p>
         <a
           class="btn"
           href="https://www.google.com/maps/search/?api=1&query=Иркутск,+ул.+Розы+Люксембург,+176%2F4"
@@ -251,7 +223,42 @@
       </div>
     </section>
 
-    <footer>© Булочка, 2025</footer>
+    <footer>
+      <span id="TA-foot"> Сделано при помощи <a href="http://95.142.44.224/website-development-for-small-businesses/">TechAid</a></span>
+      <span id="Bul-foot">© Булочка, 2025</span>
+    </footer>
+
+    <div id="cart-icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/3737/3737372.png" alt="Корзина" style="width: 40px;">
+      <span id="cart-count">0</span>
+    </div>
+
+    <div id="cart-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Ваш заказ</h2>
+        <div id="cart-items"></div>
+        <div id="cart-total">Итого: 0 руб.</div>
+        <button id="continue-shopping" class="btn">Продолжить выбор</button>
+        
+        <form id="order-form">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="tel" name="phone" placeholder="Телефон" required>
+          <textarea name="comment" placeholder="Комментарий к заказу (необязательно)"></textarea>
+          <button type="submit">Оформить заказ</button>
+        </form>
+      </div>
+    </div>
+
     <script src="script.js"></script>
+    <script>
+      fetch('php/get_hours.php')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('working-hours-hero').textContent = data.hero;
+        document.getElementById('working-hours-about').textContent = data.about;
+        document.getElementById('working-hours-contacts').textContent = data.contacts;
+      });
+    </script>
   </body>
 </html>
