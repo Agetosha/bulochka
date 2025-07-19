@@ -1,169 +1,234 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Панель управления - Булочка</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="styles_admin.css">
-  <!-- Подключаем иконки -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<style>
-  .admin-page {
-  background-color: #fff8f2;
-  min-height: 100vh;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Панель управления - Булочка</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles_admin.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: 'AIzaSyC5I1uVsEwQd7-R65SUijDU93OoOX02R1Q',
+        authDomain: 'bulochka-coffee-shop.firebaseapp.com',
+        databaseURL:
+          'https://bulochka-coffee-shop-default-rtdb.europe-west1.firebasedatabase.app',
+        projectId: 'bulochka-coffee-shop',
+        storageBucket: 'bulochka-coffee-shop.firebasestorage.app',
+        messagingSenderId: '133451524956',
+        appId: '1:133451524956:web:c10f640dda5c48006a6f99',
+        measurementId: 'G-LRXXD1JC6R',
+      };
 
-.admin-title {
-  color: #b85c1d;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #f3e6db;
-  display: inline-block;
-}
+      firebase.database.enableLogging(true);
 
-.admin-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.8rem;
-  margin-top: 1rem;
-}
-
-/* Формы */
-.admin-form {
-  background: white;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: #6d4c2c;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border: 1px solid #f3e6db;
-  border-radius: 8px;
-  font-family: 'Montserrat', sans-serif;
-  transition: all 0.2s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  outline: none;
-  border-color: #e8c4b8;
-  box-shadow: 0 0 0 2px rgba(232, 196, 184, 0.3);
-}
-
-.form-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-</style>
-<body class="admin-page">
-  <header class="admin-header">
-    <nav class="admin-nav">
-      <a href="admin.html"><i class="fas fa-utensils"></i> Панель управления</a>
-      <a href="#" id="logout"><i class="fas fa-sign-out-alt"></i> Выйти</a>
-    </nav>
-  </header>
-
-  <main class="admin-container">
-    <h1 class="admin-title">Управление часами работы</h1>
-    <div class="admin-form">
-      <div class="form-group">
-        <label for="open-time">Время открытия:</label>
-        <input type="number" id="open-time" min="0" max="23" value="8">
-      </div>
-      
-      <div class="form-group">
-        <label for="close-time">Время закрытия:</label>
-        <input type="number" id="close-time" min="0" max="23" value="21">
-      </div>
-      
-      <div class="form-actions">
-        <button class="btn btn-primary" id="save-hours">Сохранить время</button>
-      </div>
-    </div>
-    
-    <h1 class="admin-title">Управление меню</h1>
-    <div id="menu-container"></div>
-  </main>
-
-  <script src="admin.js"></script>
-  <script>
-    // Проверка авторизации
-    const adminToken = localStorage.getItem('admin_token');
-    if (!adminToken) {
-        console.log('No token found, redirecting to login');
-        window.location.href = 'login.html';
-    } else {
-        console.log('Token found:', adminToken);
+      // Инициализация Firebase
+      firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+      const auth = firebase.auth();
+    </script>
+  </head>
+  <style>
+    .admin-page {
+      background-color: #fff8f2;
+      min-height: 100vh;
     }
 
-    // Выход из системы
-    document.getElementById('logout').addEventListener('click', function(e) {
+    .admin-title {
+      color: #b85c1d;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #f3e6db;
+      display: inline-block;
+    }
+
+    .admin-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    /* Формы */
+    .admin-form {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #6d4c2c;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #f3e6db;
+      border-radius: 8px;
+      font-family: 'Montserrat', sans-serif;
+      transition: all 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #e8c4b8;
+      box-shadow: 0 0 0 2px rgba(232, 196, 184, 0.3);
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .form-group select {
+      background-color: white;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10'%3E%3Cpath fill='%236d4c2c' d='M7 10L0 0h14z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1rem;
+    }
+
+    .special-drink-preview {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 0.5rem;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+    }
+
+    .special-drink-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+  <body class="admin-page">
+    <header class="admin-header">
+      <nav class="admin-nav">
+        <a href="admin.html">
+          <i class="fas fa-utensils"></i>
+          Панель управления
+        </a>
+        <a href="#" id="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          Выйти
+        </a>
+      </nav>
+    </header>
+
+    <main class="admin-container">
+      <h1 class="admin-title">Управление часами работы</h1>
+      <div class="admin-form">
+        <div class="form-group">
+          <label for="schedule-text">
+            Текст графика (например: ежедневно, Пн-Пт):
+          </label>
+          <input type="text" id="schedule-text" value="ежедневно" />
+        </div>
+
+        <div class="form-group">
+          <label for="open-time">Время открытия (часы, 0–23):</label>
+          <input type="number" id="open-time" min="0" max="23" value="8" />
+        </div>
+
+        <div class="form-group">
+          <label for="close-time">Время закрытия (часы, 0–23):</label>
+          <input type="number" id="close-time" min="0" max="23" value="21" />
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" id="save-hours">
+            Сохранить время
+          </button>
+        </div>
+      </div>
+
+      <h1 class="admin-title">Напитки месяца и недели</h1>
+      <div class="admin-form" id="featured-form">
+        <div class="form-group">
+          <div class="form-group">
+            <label>🔍 Предпросмотр напитка месяца:</label>
+            <div id="month-preview" class="special-drink-preview"></div>
+          </div>
+
+          <div class="form-group">
+            <label>🔍 Предпросмотр напитка недели:</label>
+            <div id="week-preview" class="special-drink-preview"></div>
+          </div>
+
+          <label for="drink-of-month">☕ Напиток месяца:</label>
+          <select id="drink-of-month">
+            <option value="">Выберите напиток...</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="drink-of-week">🥤 Напиток недели:</label>
+          <select id="drink-of-week">
+            <option value="">Выберите напиток...</option>
+          </select>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" id="save-featured">
+            Сохранить выбор
+          </button>
+        </div>
+      </div>
+
+      <h1 class="admin-title">Управление меню</h1>
+      <div id="menu-container"></div>
+    </main>
+    <script>
+      // Проверка авторизации
+      auth.onAuthStateChanged((user) => {
+        if (!user) {
+          window.location.href = 'login.html';
+          return;
+        }
+        console.log('User logged in:', user.email);
+      });
+
+      // Выход из системы
+      document.getElementById('logout').addEventListener('click', (e) => {
         e.preventDefault();
-        localStorage.removeItem('admin_token');
-        window.location.href = 'index.html';
-    });
-    
-    document.addEventListener('DOMContentLoaded', function() {
-  // Загрузка текущего времени
-  fetch('php/get_hours.php')
-    .then(response => response.json())
-    .then(data => {
-      const timeMatch = data.hero.match(/(\d+):00/g);
-      if (timeMatch && timeMatch.length === 2) {
-        document.getElementById('open-time').value = timeMatch[0].split(':')[0];
-        document.getElementById('close-time').value = timeMatch[1].split(':')[0];
-      }
-    });
-  
-  // Сохранение
-  document.getElementById('save-hours').addEventListener('click', function() {
-    const open = document.getElementById('open-time').value;
-    const close = document.getElementById('close-time').value;
-    
-    fetch('php/save_hours.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + localStorage.getItem('admin_token')
-      },
-      body: JSON.stringify({
-        open: open,
-        close: close
-      })
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        alert('Время работы обновлено!');
-        location.reload();
-      }
-    });
-  });
-});
-  </script>
-</body>
+        auth.signOut().then(() => {
+          window.location.href = 'index.html';
+        });
+      });
+    </script>
+    <script src="js/admin.js"></script>
+    <script src="js/special.js"></script>
+  </body>
 </html>

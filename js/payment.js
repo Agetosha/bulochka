@@ -255,7 +255,7 @@ function completeOrder(paymentMethod, total) {
     // Перенаправляем на главную через 5 секунд
     setTimeout(() => {
         sessionStorage.clear();
-        window.location.href = '../index.html';
+        window.location.href = 'index.html';
     }, 5000);
 }
 
@@ -273,7 +273,7 @@ async function sendToTelegram(orderItems, total, paymentMethod, name, phone, com
     formData.append('order', orderText);
 
     try {
-        const response = await fetch('../php/send_order.php', {
+        const response = await fetch('php/send_order.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: formData

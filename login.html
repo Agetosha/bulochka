@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Вход в панель управления | Булочка</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* Стили для страницы входа - адаптация под общий дизайн */
     .login-page {
       min-height: 100vh;
       display: flex;
@@ -171,8 +171,21 @@
   </style>
 </head>
 <body class="login-page">
-  <header>
-    <div class="logo">Булочка</div>
+  <header style="display: flex; justify-content: center; align-items: center; position: relative; padding: 1rem;">
+    <a href="index.html" class="home-link" style="
+      position: absolute;
+      left: 1rem;
+      color: #b85c1d;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    ">
+      <i class="fas fa-arrow-left"></i> На главную
+    </a>
+    <div class="logo" style="margin: 0 auto;">Булочка</div>
   </header>
 
   <div class="login-container">
@@ -182,7 +195,7 @@
     </p>
     
     <form class="login-form" id="admin-login-form">
-      <input type="text" name="username" placeholder="Логин" required autocomplete="username">
+      <input type="email" name="email" placeholder="Email" required autocomplete="email">
       <input type="password" name="password" placeholder="Пароль" required autocomplete="current-password">
       <button type="submit">Войти</button>
     </form>
@@ -194,67 +207,66 @@
     </div>
   </div>
 
-<script>
-document.getElementById('admin-login-form').addEventListener('submit', async function(e) {
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyC5I1uVsEwQd7-R65SUijDU93OoOX02R1Q",
+      authDomain: "bulochka-coffee-shop.firebaseapp.com",
+      databaseURL: "https://bulochka-coffee-shop-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "bulochka-coffee-shop",
+      storageBucket: "bulochka-coffee-shop.appspot.com",
+      messagingSenderId: "133451524956",
+      appId: "1:133451524956:web:c10f640dda5c48006a6f99",
+      measurementId: "G-LRXXD1JC6R"
+    };
+    
+    // Инициализация Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+  </script>
+  
+  <script>
+  document.getElementById('admin-login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     
-    const form = this;
+    const form = e.target;
     const errorElement = document.getElementById('login-error');
-    errorElement.style.display = 'none';
-    
-    // Блокируем кнопку на время запроса
     const submitBtn = form.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Проверка...';
     
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Вход...';
+    errorElement.style.display = 'none';
+  
     try {
-        const formData = {
-            username: form.username.value.trim(),
-            password: form.password.value
-        };
-        
-        // Проверка минимальной длины пароля
-        if (formData.password.length < 8) {
-            throw new Error('Пароль должен содержать минимум 8 символов');
-        }
-        
-        const response = await fetch('php/admin_auth.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            body: JSON.stringify(formData)
-        });
-        
-        const data = await response.json();
-        
-        if (!response.ok) {
-            throw new Error(data.message || 'Ошибка сервера');
-        }
-        
-        if (data.success) {
-            // Сохраняем токен и время истечения
-            localStorage.setItem('admin_token', data.token);
-            localStorage.setItem('token_expires', data.expires);
-            
-            // Перенаправляем с очисткой истории
-            window.location.replace('admin.html');
-        } else {
-            throw new Error(data.message || 'Неверные учетные данные');
-        }
+      const email = form.email.value.trim();
+      const password = form.password.value;
+      
+      console.log('Пытаюсь войти с:', email); // Логирование
+      
+      const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+      console.log('Успешный вход:', userCredential.user);
+      
+      window.location.href = 'admin.html';
     } catch (error) {
-        console.error('Ошибка:', error);
-        errorElement.textContent = error.message;
-        errorElement.style.display = 'block';
-        
-        // Задержка перед повторной попыткой
-        await new Promise(resolve => setTimeout(resolve, 1000));
+      console.error('Ошибка входа:', error); // Логирование ошибки
+      errorElement.textContent = getFriendlyError(error.code);
+      errorElement.style.display = 'block';
     } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Войти';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Войти';
     }
-});
+  });
+
+function getFriendlyError(code) {
+  const errors = {
+    'auth/invalid-email': 'Неверный формат email',
+    'auth/user-disabled': 'Аккаунт отключён',
+    'auth/user-not-found': 'Пользователь не найден',
+    'auth/wrong-password': 'Неверный пароль'
+  };
+  return errors[code] || 'Ошибка входа';
+}
 </script>
 </body>
 </html>

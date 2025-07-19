@@ -2,15 +2,36 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Булочка — кофейня в Ново-Ленино</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="preload" href="php/menu.json" as="fetch" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="styles_order.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/styles_order.css" />
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: 'AIzaSyC5I1uVsEwQd7-R65SUijDU93OoOX02R1Q',
+        authDomain: 'bulochka-coffee-shop.firebaseapp.com',
+        databaseURL:
+          'https://bulochka-coffee-shop-default-rtdb.europe-west1.firebasedatabase.app',
+        projectId: 'bulochka-coffee-shop',
+        storageBucket: 'bulochka-coffee-shop.firebasestorage.app',
+        messagingSenderId: '133451524956',
+        appId: '1:133451524956:web:c10f640dda5c48006a6f99',
+        measurementId: 'G-LRXXD1JC6R',
+      };
+
+      // Инициализация Firebase
+      firebase.initializeApp(firebaseConfig);
+      const database = firebase.database();
+    </script>
   </head>
   <body>
     <header>
@@ -43,6 +64,35 @@
 
     <section class="section" id="menu">
       <h2>Меню</h2>
+      <!-- Напиток месяца -->
+      <div class="special-offers-row">
+        <div class="special-offer drink-of-month-block">
+          <h3 class="special-offer-title">Напиток месяца</h3>
+          <div class="special-offer-description">
+            Эксклюзивный напиток, который наши гости выбирают чаще всего в этом
+            месяце
+          </div>
+          <div class="menu-grid drink-of-the-month">
+            <!-- Плейсхолдер для напитка месяца -->
+            <div class="menu-item-skeleton featured"></div>
+          </div>
+        </div>
+
+        <!-- Напитки недели -->
+        <div class="special-offer drinks-of-week-block">
+          <h3 class="special-offer-title">Напитки недели</h3>
+          <div class="special-offer-description">
+            Специальная подборка напитков, которые мы особенно рекомендуем на
+            этой неделе
+          </div>
+          <div class="menu-grid drinks-of-the-week">
+            <!-- 3 плейсхолдера для напитков недели -->
+            <div class="menu-item-skeleton featured"></div>
+            <div class="menu-item-skeleton featured"></div>
+            <div class="menu-item-skeleton featured"></div>
+          </div>
+        </div>
+      </div>
 
       <!-- Секция напитков -->
       <div class="menu-category-row">
@@ -86,14 +136,41 @@
         <div class="menu-item-skeleton"></div>
       </div>
     </section>
-    
+
     <section class="section" id="about">
       <h2>О нас</h2>
       <div class="about-bg-container">
         <div class="about-block">
-          <p>Мы — уютная кофейня "Булочка" в самом сердце Ново-Ленино.</p>
-          <p id="working-hours-about">Каждое утро свежая выпечка и ароматный кофе ждут вас с 8:00 до 21:00.</p>
-          <p>Дружелюбная атмосфера и забота о каждом клиенте — наш приоритет!</p>
+          <p>
+            Мы — уютная кофейня "Булочка" в самом сердце Ново-Ленино, где каждый
+            глоток наполнен теплом и заботой.
+          </p>
+
+          <p>
+            Наш секрет — это не просто кофе и выпечка, а особый рецепт счастья:
+          </p>
+
+          <ul class="features-list">
+            <li>
+              🍪 Свежесть в каждом кусочке — выпекаем несколько раз в день
+            </li>
+            <li>❤️ Главный ингредиент — любовь к своему делу</li>
+            <li>
+              🌱 Только натуральные ингредиенты от проверенных поставщиков
+            </li>
+            <li>
+              ✨ Авторские рецепты напитков, которые вы не попробуете больше
+              нигде
+            </li>
+            <li>📚 Уютная атмосфера с книгами и настольными играми</li>
+          </ul>
+
+          <p>
+            Мы создали это место с мыслью о том, что хороший кофе может сделать
+            день ярче, а свежая выпечка — согреть душу.
+          </p>
+
+          <p>Приходите за вкусом, оставайтесь за атмосферой!</p>
         </div>
       </div>
     </section>
@@ -106,9 +183,19 @@
           <div class="review-stats">24 отзыва</div>
         </div>
         <div class="review-date">2 июня 2025</div>
-        <div class="review-text">Невероятно отличное место , кофе невероятно вкусный и за такое цена не кусается , берем уже ни раз и с каждым разом все лучше и лучше делают кофе. Атмосфера очень приятная , не чувствуется негатива. Персонал приятный и доброжелательный, видно , что давления от руководства в сторону персонала нет. Желаю процветание , потому что в Ново-Ленино альтернативы , что касается кофе не имеется. Напитков очень много и выбор такой , что разбегаются глаза. Брали напитков сначала обычные, попробовали латте нутелла и дубайский шоколад и были просто в восторге 🙏🏻</div>
+        <div class="review-text">
+          Невероятно отличное место , кофе невероятно вкусный и за такое цена не
+          кусается , берем уже ни раз и с каждым разом все лучше и лучше делают
+          кофе. Атмосфера очень приятная , не чувствуется негатива. Персонал
+          приятный и доброжелательный, видно , что давления от руководства в
+          сторону персонала нет. Желаю процветание , потому что в Ново-Ленино
+          альтернативы , что касается кофе не имеется. Напитков очень много и
+          выбор такой , что разбегаются глаза. Брали напитков сначала обычные,
+          попробовали латте нутелла и дубайский шоколад и были просто в восторге
+          🙏🏻
+        </div>
       </div>
-      
+
       <div class="reviews-container">
         <div class="review-card">
           <div class="review-header">
@@ -117,11 +204,14 @@
           </div>
           <div class="review-date">27 июня 2025</div>
           <div class="review-image">
-            <img src="images/review-0.png" alt="Кружка из кофейни">
+            <img src="images/review-0.png" alt="Кружка из кофейни" />
           </div>
-          <div class="review-text">Отличное начало рабочего дня😉 вкусный, бодрящий кофе, уютный интерьер и позитивный бариста👍🥰 что ещё нужно?</div>
+          <div class="review-text">
+            Отличное начало рабочего дня😉 вкусный, бодрящий кофе, уютный
+            интерьер и позитивный бариста👍🥰 что ещё нужно?
+          </div>
         </div>
-    
+
         <div class="review-card">
           <div class="review-header">
             <div class="review-author">Татьяна Яхина</div>
@@ -129,11 +219,17 @@
           </div>
           <div class="review-date">21 июня 2025, отредактирован</div>
           <div class="review-image">
-            <img src="images/review-1.png" alt="Кружка из кофейни">
+            <img src="images/review-1.png" alt="Кружка из кофейни" />
           </div>
-          <div class="review-text">Чистая уютная кофейня для тихой беседы. Приятный бариста и вкусный шоколадный чизкейк) Повторно пришла через 2 месяца, что приятно - впечатление не изменилось. На этот раз пришёлся по сердцу напиток "Мексиканские каникулы" (В жару отличный вариант) и панини с индейкой 😍</div>
+          <div class="review-text">
+            Чистая уютная кофейня для тихой беседы. Приятный бариста и вкусный
+            шоколадный чизкейк) Повторно пришла через 2 месяца, что приятно -
+            впечатление не изменилось. На этот раз пришёлся по сердцу напиток
+            "Мексиканские каникулы" (В жару отличный вариант) и панини с
+            индейкой 😍
+          </div>
         </div>
-    
+
         <div class="review-card">
           <div class="review-header">
             <div class="review-author">Kira</div>
@@ -141,11 +237,15 @@
           </div>
           <div class="review-date">24 мая 2025</div>
           <div class="review-image">
-            <img src="images/review-2.png" alt="Кружка из кофейни">
+            <img src="images/review-2.png" alt="Кружка из кофейни" />
           </div>
-          <div class="review-text">Каждый день ходила мимо кофейни после работы, из интереса решила зайти. Внутри очень уютная атмосфера, вкусный вишневый милкшейк и работает очень приятная девушка.</div>
+          <div class="review-text">
+            Каждый день ходила мимо кофейни после работы, из интереса решила
+            зайти. Внутри очень уютная атмосфера, вкусный вишневый милкшейк и
+            работает очень приятная девушка.
+          </div>
         </div>
-    
+
         <div class="review-card">
           <div class="review-header">
             <div class="review-author">Дарья Иванова</div>
@@ -153,9 +253,12 @@
           </div>
           <div class="review-date">23 мая 2025</div>
           <div class="review-image">
-            <img src="images/review-3.png" alt="Кружка из кофейни">
+            <img src="images/review-3.png" alt="Кружка из кофейни" />
           </div>
-          <div class="review-text">Добрый день! Увидела новую кофейню, не смогла пройти мимо! Вкусный кофе, вежливая девушка, уютное место 💖 Рекомендую👍</div>
+          <div class="review-text">
+            Добрый день! Увидела новую кофейню, не смогла пройти мимо! Вкусный
+            кофе, вежливая девушка, уютное место 💖 Рекомендую👍
+          </div>
         </div>
         <div class="review-card">
           <div class="review-header">
@@ -164,12 +267,13 @@
           </div>
           <div class="review-date">20 апреля 2025</div>
           <div class="review-image">
-            <img src="images/review-5.png" alt="Кружка из кофейни">
+            <img src="images/review-5.png" alt="Кружка из кофейни" />
           </div>
           <div class="review-text">
-            Чисто случайно наткнулась на кофейню Булочка, а так как я любитель кофе, не смогла удержаться и не зайти. 
-            Кофе отменный, вкусный, с превосходным ароматом 💗 Всем рекомендую! 
-            Так же приобрела кружку для авто - очень удобно ✅
+            Чисто случайно наткнулась на кофейню Булочка, а так как я любитель
+            кофе, не смогла удержаться и не зайти. Кофе отменный, вкусный, с
+            превосходным ароматом 💗 Всем рекомендую! Так же приобрела кружку
+            для авто - очень удобно ✅
           </div>
         </div>
 
@@ -180,13 +284,19 @@
           </div>
           <div class="review-date">4 июня 2025</div>
           <div class="review-image">
-            <img src="images/review-4.png" alt="Кружка из кофейни">
+            <img src="images/review-4.png" alt="Кружка из кофейни" />
           </div>
-          <div class="review-text">Любимая кофейня ❤️‍🔥 сильно вкусно всееееее!</div>
+          <div class="review-text">
+            Любимая кофейня ❤️‍🔥 сильно вкусно всееееее!
+          </div>
         </div>
       </div>
       <div class="all-reviews-btn-container">
-        <a href="https://2gis.ru/irkutsk/firm/70000001100200867/tab/reviews" class="btn all-reviews-btn" target="_blank">
+        <a
+          href="https://2gis.ru/irkutsk/firm/70000001100200867/tab/reviews"
+          class="btn all-reviews-btn"
+          target="_blank"
+        >
           Посмотреть все отзывы
         </a>
       </div>
@@ -204,7 +314,10 @@
           Иркутск, ул. Розы Люксембург, 176/4, павильон (Ново-Ленино, Ленинский
           район)
         </p>
-        <p id="working-hours-contacts">Ежедневно с 08:00 до 21:00</p>
+        <p id="working-hours">
+          <strong>Время работы:</strong>
+          Ежедневно с 8 до 21
+        </p>
         <a
           class="btn"
           href="https://www.google.com/maps/search/?api=1&query=Иркутск,+ул.+Розы+Люксембург,+176%2F4"
@@ -224,26 +337,57 @@
     </section>
 
     <footer>
-      <span id="TA-foot"> Сделано при помощи <a href="http://95.142.44.224/website-development-for-small-businesses/">TechAid</a></span>
+      <span id="TA-foot">
+        Сделано при помощи
+        <a
+          href="http://95.142.44.224/website-development-for-small-businesses/"
+        >
+          TechAid Point
+        </a>
+      </span>
       <span id="Bul-foot">© Булочка, 2025</span>
       <span class="social-icons">
         <a href="https://t.me/ваш_телеграм" class="social-icon" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+            alt="Telegram"
+          />
         </a>
         <a href="mailto:ваш_email@gmail.com" class="social-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg"
+            alt="Gmail"
+          />
         </a>
-        <a href="https://vk.com/ваш_профиль" class="social-icon" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg" alt="VK">
+        <a
+          href="https://vk.com/ваш_профиль"
+          class="social-icon"
+          target="_blank"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg"
+            alt="VK"
+          />
         </a>
-        <a href="https://www.instagram.com/ваш_профиль" class="social-icon" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        <a
+          href="https://www.instagram.com/ваш_профиль"
+          class="social-icon"
+          target="_blank"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+            alt="Instagram"
+          />
         </a>
       </span>
     </footer>
 
     <div id="cart-icon">
-      <img src="https://cdn-icons-png.flaticon.com/512/3737/3737372.png" alt="Корзина" style="width: 40px;">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/3737/3737372.png"
+        alt="Корзина"
+        style="width: 40px"
+      />
       <span id="cart-count">0</span>
     </div>
 
@@ -254,24 +398,53 @@
         <div id="cart-items"></div>
         <div id="cart-total">Итого: 0 руб.</div>
         <button id="continue-shopping" class="btn">Продолжить выбор</button>
-        
+
         <form id="order-form">
-          <input type="text" name="name" placeholder="Ваше имя" required>
-          <input type="tel" name="phone" placeholder="Телефон" required>
-          <textarea name="comment" placeholder="Комментарий к заказу (необязательно)"></textarea>
+          <input type="text" name="name" placeholder="Ваше имя" required />
+          <input type="tel" name="phone" placeholder="Телефон" required />
+          <textarea
+            name="comment"
+            placeholder="Комментарий к заказу (необязательно)"
+          ></textarea>
           <button type="submit">Оформить заказ</button>
         </form>
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/special.js"></script>
     <script>
-      fetch('php/get_hours.php')
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById('working-hours-hero').textContent = data.hero;
-        document.getElementById('working-hours-about').textContent = data.about;
-        document.getElementById('working-hours-contacts').textContent = data.contacts;
+      // Загрузка часов работы
+      firebase
+        .database()
+        .ref('workingHours')
+        .once('value')
+        .then((snapshot) => {
+          const data = snapshot.val();
+          if (data) {
+            const open = data.open || '??';
+            const close = data.close || '??';
+            const text = data.text || '';
+
+            document.getElementById(
+              'working-hours'
+            ).textContent = `${text} с ${open}:00 до ${close}:00`;
+            document.getElementById(
+              'working-hours-text'
+            ).textContent = `${text} с ${open}:00 до ${close}:00`;
+            document.getElementById(
+              'working-hours-about'
+            ).textContent = `Каждое утро свежая выпечка и ароматный кофе ждут вас с ${open}:00 до ${close}:00.`;
+          }
+        })
+        .catch((error) => {
+          console.error('Ошибка загрузки часов работы:', error);
+        });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        if (window.renderSpecialDrinksOnMainPage) {
+          window.renderSpecialDrinksOnMainPage();
+        }
       });
     </script>
   </body>

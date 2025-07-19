@@ -19,6 +19,7 @@ header {
   background: #fff;
   padding: 1rem 2rem;
   display: flex;
+  height: 60px;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -29,10 +30,9 @@ header {
 
 header .logo {
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: #d2691e;
 }
-
 
 .hero {
   background: url('https://sun9-18.userapi.com/s/v1/ig2/pfL1w-Ru4DGiTAjVmoSDeQFjFGsCos6zzXGrn8hEXlmwl-RxWcfwpxIwunWAZA_UwgVbyV1r8_YzSGDToq0c_s5E.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920&from=bu&cs=1440x0')
@@ -299,20 +299,137 @@ header .logo {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-
+#contacts {
+  padding: 1rem 1rem;
+  background-color: #fffaf5;
+}
 
 .contacts-block {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 6px 20px rgba(210, 105, 30, 0.08);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ffeedd;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contacts-block:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(210, 105, 30, 0.15);
+}
+
+.contacts-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #d2691e, #e07b2b);
+}
+
+.contacts-block p {
+  margin: 1.2rem 0;
+  font-size: 1.1rem;
+  color: #555;
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 2rem;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-  max-width: 900px;
-  margin: auto;
-  line-height: 1.7;
-  transition: box-shadow 0.3s ease;
+  align-items: center;
+  line-height: 1.6;
+}
+
+.contacts-block strong {
+  color: #b85c1d;
+  min-width: 80px;
+  display: inline-block;
+}
+
+.contacts-block a {
+  color: #d2691e;
+  text-decoration: none;
+  transition: color 0.2s;
+  margin-left: 0.3rem;
+}
+
+.contacts-block a:hover {
+  color: #b85c1d;
+  text-decoration: underline;
+}
+
+.contacts-block .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(to right, #d2691e, #e07b2b);
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(210, 105, 30, 0.2);
+  transition: all 0.3s ease;
+}
+
+.contacts-block .btn:hover {
+  background: linear-gradient(to right, #b85c1d, #d2691e);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(210, 105, 30, 0.3);
+  text-decoration: none;
+}
+
+.map-container {
+  margin-top: 2rem;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(210, 105, 30, 0.1);
+  border: 1px solid #f0c9a8;
+}
+
+/* Иконки для контактов */
+.contacts-block p:nth-child(1)::before {
+  content: '📞';
+  margin-right: 0.8rem;
+  font-size: 1.3rem;
+}
+
+.contacts-block p:nth-child(2)::before {
+  content: '📍';
+  margin-right: 0.8rem;
+  font-size: 1.3rem;
+}
+
+.contacts-block p:nth-child(3)::before {
+  content: '⏰';
+  margin-right: 0.8rem;
+  font-size: 1.3rem;
+}
+
+/* Адаптив для контактов */
+@media (max-width: 768px) {
+  .contacts-block {
+    padding: 1.8rem;
+  }
+
+  .contacts-block p {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contacts-block strong {
+    margin-bottom: 0.3rem;
+  }
+
+  .contacts-block a {
+    margin-left: 0;
+  }
+
+  .contacts-block .btn {
+    width: 100%;
+  }
 }
 
 #about {
@@ -327,10 +444,9 @@ header .logo {
 .about-bg-container {
   position: relative;
   width: 100%;
-  min-height: 300px; /* Уменьшил высоту */
+  min-height: 300px;
   margin-top: 2rem;
-  background: url('https://sun9-18.userapi.com/s/v1/ig2/pfL1w-Ru4DGiTAjVmoSDeQFjFGsCos6zzXGrn8hEXlmwl-RxWcfwpxIwunWAZA_UwgVbyV1r8_YzSGDToq0c_s5E.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920&from=bu&cs=1440x0')
-    center/cover no-repeat;
+  background: url('../images/about-us.jpg') center/cover no-repeat;
   background-attachment: fixed;
   border-radius: 18px;
   overflow: hidden;
@@ -376,7 +492,7 @@ header .logo {
   .about-bg-container {
     min-height: 250px;
   }
-  
+
   .about-block {
     max-width: 90%;
     padding: 1.5rem;
@@ -450,7 +566,7 @@ header .logo {
 }
 
 .review-card::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 15px;
   left: 20px;
@@ -506,7 +622,7 @@ header .logo {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .review-card {
     padding: 1.5rem;
   }
@@ -590,7 +706,7 @@ header .logo {
 
 /* Иконка для кнопки (можно использовать эмодзи или добавить иконку через псевдоэлемент) */
 .all-reviews-btn::after {
-  content: "→";
+  content: '→';
   font-size: 1.2rem;
   transition: transform 0.3s ease;
 }
@@ -616,8 +732,12 @@ header .logo {
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 /* Стили для модального окна с изображением */
@@ -733,17 +853,17 @@ nav a:hover {
     padding: 0;
     flex-direction: column;
   }
-  
+
   .header-container {
     padding: 1rem;
   }
-  
+
   .mobile-menu-toggle {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   nav {
     position: fixed;
     top: 0;
@@ -753,34 +873,34 @@ nav a:hover {
     background: #fff;
     flex-direction: column;
     padding: 5rem 2rem 2rem;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     transition: left 0.3s ease;
     z-index: 1000;
   }
-  
+
   nav.open {
     left: 0;
   }
-  
+
   nav a {
     margin: 0.5rem 0;
     padding: 0.8rem;
     border-bottom: 1px solid #f0f0f0;
   }
-  
+
   /* Анимация гамбургера */
   .mobile-menu-toggle.open span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
-  
+
   .mobile-menu-toggle.open span:nth-child(2) {
     opacity: 0;
   }
-  
+
   .mobile-menu-toggle.open span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
-  
+
   /* Затемнение фона при открытом меню */
   .overlay {
     position: fixed;
@@ -788,11 +908,11 @@ nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 999;
     display: none;
   }
-  
+
   .overlay.active {
     display: block;
   }
@@ -859,4 +979,238 @@ footer {
 .social-icon img {
   width: 24px;
   height: 24px;
+}
+
+/* Стили для специальных предложений */
+.special-offer {
+  background: linear-gradient(135deg, #fffaf5 0%, #fff0e5 100%);
+  border-radius: 18px;
+  padding: 2rem;
+  margin: 3rem 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(210, 105, 30, 0.1);
+  border: 1px solid #f0c9a8;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.special-offer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(210, 105, 30, 0.15);
+}
+
+.special-offer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #d2691e, #e07b2b);
+}
+
+.special-offer-title {
+  font-size: 2rem;
+  color: #b85c1d;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.special-offer-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #d2691e, #f0c9a8);
+  border-radius: 3px;
+}
+
+.special-offer-description {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Стили для выделенных товаров */
+.menu-grid.featured {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.menu-item-skeleton.featured {
+  height: 320px;
+  position: relative;
+  background: linear-gradient(135deg, #fff9f2 0%, #fff0e5 100%);
+  border: 2px solid #f0c9a8;
+  box-shadow: 0 8px 25px rgba(210, 105, 30, 0.1);
+}
+
+.menu-item-skeleton.featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 6px;
+}
+
+/* Бейдж для напитка месяца */
+.drink-of-the-month .menu-item-skeleton.featured::after {
+  content: '★ Напиток месяца ★';
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, #d2691e, #e07b2b);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(210, 105, 30, 0.3);
+  z-index: 1;
+}
+
+/* Бейдж для напитков недели */
+.drinks-of-the-week .menu-item-skeleton.featured::after {
+  content: '✨ Хит недели ✨';
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, #d2691e, #e07b2b);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(210, 105, 30, 0.3);
+  z-index: 1;
+}
+
+/* Адаптив для специальных предложений */
+@media (max-width: 768px) {
+  .special-offer {
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .special-offer-title {
+    font-size: 1.7rem;
+  }
+
+  .special-offer-description {
+    font-size: 1rem;
+  }
+
+  .menu-grid.featured {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .menu-item-skeleton.featured {
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .special-offer {
+    padding: 1.2rem;
+  }
+
+  .special-offer-title {
+    font-size: 1.5rem;
+  }
+
+  .drink-of-the-month .menu-item-skeleton.featured::after,
+  .drinks-of-the-week .menu-item-skeleton.featured::after {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    top: 10px;
+  }
+}
+
+.menu-item.featured {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  max-width: 280px;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.menu-item.featured:hover {
+  transform: translateY(-5px);
+}
+
+.menu-item.featured img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.menu-item.featured .item-details {
+  padding: 1rem;
+  text-align: center;
+}
+
+.menu-item.featured h4 {
+  margin: 0.2rem 0;
+  font-size: 1.2rem;
+}
+
+.menu-item.featured p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.menu-item.featured strong {
+  display: block;
+  margin: 0.5rem 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.menu-item.featured .btn.add-to-cart {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.special-offers-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.special-offer {
+  background: linear-gradient(135deg, #fffaf5 0%, #fff0e5 100%);
+  border-radius: 18px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(210, 105, 30, 0.1);
+  border: 1px solid #f0c9a8;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .special-offers-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
