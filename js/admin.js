@@ -424,7 +424,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Вызываем настройку обработчика
   setupSpecialDrinksSaveHandler();
 
-  // === ПЕРЕМЕСТИ ВНЕ IF ===
   function loadWorkingHours() {
     const ref = database.ref('workingHours');
     ref

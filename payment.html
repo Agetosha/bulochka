@@ -1,61 +1,74 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Оплата заказа | Булочка</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/payment.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/payment.css" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
     <header>
-        <div class="logo">Булочка</div>
+      <div class="logo">Булочка</div>
     </header>
 
     <div class="container">
-        <h1>Оплата заказа</h1>
-        
-        <div class="order-summary">
-            <h2>Ваш заказ</h2>
-            <div id="order-items"></div>
-            <div id="order-total"></div>
+      <h1>Оплата заказа</h1>
+
+      <div class="order-summary">
+        <h2>Ваш заказ</h2>
+        <div id="order-items"></div>
+        <div id="order-total"></div>
+      </div>
+
+      <div class="payment-methods">
+        <h2>Выберите способ оплаты</h2>
+
+        <div class="payment-method" data-method="card">
+          <input type="radio" name="payment" value="card" />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/179/179457.png"
+            alt="Карта"
+            class="payment-icon"
+          />
+          <div>
+            <h3>Банковской картой</h3>
+            <p>Оплата онлайн Visa, Mastercard, МИР</p>
+          </div>
         </div>
 
-        <div class="payment-methods">
-            <h2>Выберите способ оплаты</h2>
-            
-            <div class="payment-method" data-method="card">
-                <input type="radio" name="payment" value="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/179/179457.png" alt="Карта" class="payment-icon">
-                <div>
-                    <h3>Банковской картой</h3>
-                    <p>Оплата онлайн Visa, Mastercard, МИР</p>
-                </div>
-            </div>
-            
-            <div class="payment-method" data-method="cash">
-                <input type="radio" name="payment" value="cash">
-                <img src="https://cdn-icons-png.flaticon.com/512/5890/5890086.png" alt="Наличные" class="payment-icon">
-                <div>
-                    <h3>Наличными при получении</h3>
-                    <p>Оплата наличными в кофейне</p>
-                </div>
-            </div>
-            
-            <div class="payment-method" data-method="sbp">
-                <input type="radio" name="payment" value="sbp">
-                <img src="https://cdn-icons-png.flaticon.com/512/2331/2331966.png" alt="СБП" class="payment-icon">
-                <div>
-                    <h3>Система быстрых платежей (СБП)</h3>
-                    <p>Оплата через приложение вашего банка</p>
-                </div>
-            </div>
+        <div class="payment-method" data-method="cash">
+          <input type="radio" name="payment" value="cash" />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/5890/5890086.png"
+            alt="Наличные"
+            class="payment-icon"
+          />
+          <div>
+            <h3>Наличными при получении</h3>
+            <p>Оплата наличными в кофейне</p>
+          </div>
         </div>
 
-        <button id="confirm-payment">Перейти к оплате</button>
+        <div class="payment-method" data-method="sbp">
+          <input type="radio" name="payment" value="sbp" />
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2331/2331966.png"
+            alt="СБП"
+            class="payment-icon"
+          />
+          <div>
+            <h3>Система быстрых платежей (СБП)</h3>
+            <p>Оплата через приложение вашего банка</p>
+          </div>
+        </div>
+      </div>
+
+      <button id="confirm-payment">Перейти к оплате</button>
     </div>
 
     <script src="js/script.js"></script>
     <script src="js/payment.js"></script>
-</body>
+  </body>
 </html>

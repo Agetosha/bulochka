@@ -225,9 +225,51 @@ header .logo {
   }
   .menu-grid {
     display: none;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
   .menu-grid.open {
     display: grid;
+  }
+
+  .menu-item {
+    height: 350px;
+  }
+
+  .menu-item img {
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-grid.open {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .menu-item {
+    height: 320px;
+  }
+
+  .menu-item img {
+    height: 140px;
+  }
+
+  .menu-item h3 {
+    font-size: 0.95rem;
+  }
+
+  .menu-item p {
+    font-size: 0.9rem;
+  }
+
+  .menu-item .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 0;
+  }
+
+  .header-container {
+    padding: 0.8rem;
   }
 }
 
@@ -919,45 +961,61 @@ nav a:hover {
 }
 
 footer {
-  padding: 2.5%;
+  padding: 2.5rem 1rem;
   background: #333;
   color: white;
   margin-top: 3rem;
   font-size: 0.9rem;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   position: relative;
+  min-height: 80px;
 }
 
 #TA-foot {
-  position: absolute;
-  top: 40%;
-  left: 0;
-  margin-left: 2%;
-
+  flex: 1;
   font-weight: bold;
-  a {
-    color: red;
-    text-decoration: none;
-  }
+  margin: 0.5rem 0;
+}
+
+#TA-foot a {
+  color: #ff6b6b;
+  text-decoration: none;
 }
 
 #Bul-foot {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translateX(-50%);
+  flex: 1;
+  text-align: center;
+  margin: 0.5rem 0;
 }
 
 .social-icons {
-  position: absolute;
-  top: 15%;
-  left: 80%;
-  transform: translateX(-50%);
-
+  flex: 1;
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 15px;
+  justify-content: flex-end;
+  gap: 15px;
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  #TA-foot,
+  #Bul-foot,
+  .social-icons {
+    flex: none;
+    width: 100%;
+    margin: 0.7rem 0;
+    text-align: center;
+    justify-content: center;
+  }
 }
 
 .social-icon {
@@ -1115,12 +1173,21 @@ footer {
   }
 
   .menu-grid.featured {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    display: grid !important; /* Force display on mobile */
   }
 
   .menu-item-skeleton.featured {
     height: 280px;
+  }
+
+  .drink-of-the-month .menu-item-skeleton.featured::after,
+  .drinks-of-the-week .menu-item-skeleton.featured::after {
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -1212,5 +1279,20 @@ footer {
   .special-offers-row {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+
+  /* Fix for special offers display on mobile */
+  .drink-of-month-block .menu-grid,
+  .drinks-of-week-block .menu-grid {
+    display: grid !important;
+  }
+
+  .drink-of-month-block .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .drinks-of-week-block .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 }

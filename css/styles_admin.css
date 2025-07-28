@@ -153,10 +153,10 @@
   bottom: 20px;
   right: 20px;
   padding: 15px 25px;
-  background: #4CAF50;
+  background: #4caf50;
   color: white;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 1000;
   opacity: 0;
   transform: translateX(100%);
@@ -170,34 +170,73 @@
 }
 
 .notification.error {
-  background: #F44336;
+  background: #f44336;
 }
 
 /* Анимации */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideIn {
-  from { transform: translateX(100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
   .admin-nav {
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 1rem;
   }
-  
+
   .admin-container {
     padding: 0 1rem;
   }
-  
+
   .admin-menu-grid {
     grid-template-columns: 1fr;
+  }
+
+  .admin-title {
+    font-size: 1.8rem;
+  }
+
+  .form-group label {
+    font-size: 0.95rem;
+  }
+
+  .admin-form {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-nav {
+    padding: 0.8rem;
+  }
+
+  .admin-nav a {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .admin-title {
+    font-size: 1.5rem;
   }
 }
 
@@ -217,7 +256,7 @@
   padding: 1rem;
   background: #fff0e6;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   margin-top: 0.5rem;
 }
 
