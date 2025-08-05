@@ -79,17 +79,15 @@
           </div>
         </div>
 
-        <!-- Напитки недели -->
+        <!-- Напиток недели -->
         <div class="special-offer drinks-of-week-block">
-          <h3 class="special-offer-title">Напитки недели</h3>
+          <h3 class="special-offer-title">Напиток недели</h3>
           <div class="special-offer-description">
-            Специальная подборка напитков, которые мы особенно рекомендуем на
+            Эксклюзивный напиток, который мы особенно рекомендуем попробовать на
             этой неделе
           </div>
           <div class="menu-grid drinks-of-the-week">
-            <!-- 3 плейсхолдера для напитков недели -->
-            <div class="menu-item-skeleton featured"></div>
-            <div class="menu-item-skeleton featured"></div>
+            <!-- Плейсхолдер для напитка недели -->
             <div class="menu-item-skeleton featured"></div>
           </div>
         </div>
@@ -395,36 +393,188 @@
     </section>
 
     <section class="section" id="contacts">
-      <h2>Контакты</h2>
-      <div class="contacts-block">
-        <p>
-          <strong>Телефон:</strong>
-          <a href="tel:+79140001788">+7‒914‒000‒17‒88</a>
-        </p>
-        <p>
-          <strong>Адрес:</strong>
-          Иркутск, ул. Розы Люксембург, 176/4, павильон (Ново-Ленино, Ленинский
-          район)
-        </p>
-        <p id="working-hours">
-          <strong>Время работы:</strong>
-          Ежедневно с 8 до 21
-        </p>
-        <a
-          class="btn"
-          href="https://www.google.com/maps/search/?api=1&query=Иркутск,+ул.+Розы+Люксембург,+176%2F4"
-          target="_blank"
-        >
-          Открыть в Google Maps
-        </a>
-      </div>
-      <div class="map-container">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2341.2903624659895!2d104.19582527730456!3d52.2843791719777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5da83bbd6b853e85%3A0xa70c14582d354eb!2z0JHQvtC70YzRiNCw0YHRgtC40Y8sIDE3Ni80LCDQmtC-0YDQvNCw0YDQvdCw0Y8g0L7QsdC70LDRgdGC0YwsINCn0YHRgtGA0L7QstCwLCA2NjQwNDA!5e0!3m2!1sru!2sru!4v1719313146556!5m2!1sru!2sru"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+      <div class="contacts-bg-container">
+        <h2>Контакты</h2>
+        <div class="contacts-content">
+          <div class="contacts-info-column">
+            <div class="contacts-block">
+              <div class="contact-item">
+                <div class="contact-icon phone-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"
+                    />
+                  </svg>
+                </div>
+                <div class="contact-content">
+                  <h4>Телефон</h4>
+                  <a href="tel:+79140001788">+7‒914‒000‒17‒88</a>
+                  <span>Звоните с 8:00 до 21:00</span>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon location-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"
+                    />
+                  </svg>
+                </div>
+                <div class="contact-content">
+                  <h4>Адрес</h4>
+                  <span>Иркутск, ул. Розы Люксембург, 176/4</span>
+                  <span>павильон (Ново-Ленино, Ленинский район)</span>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon time-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.7L16.2,16.2Z"
+                    />
+                  </svg>
+                </div>
+                <div class="contact-content">
+                  <h4>Время работы</h4>
+                  <span id="working-hours-contact">
+                    Ежедневно с 8:00 до 21:00
+                  </span>
+                  <span>Без выходных и праздников</span>
+                </div>
+              </div>
+
+              <div class="contact-features">
+                <div class="contact-feature">
+                  <div class="feature-icon-small">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M18.92,6.01C18.72,5.42 18.16,5.01 17.5,5H6.5C5.84,5.01 5.28,5.42 5.08,6.01L3,12V20A1,1 0 0,0 4,21H5A1,1 0 0,0 6,20V19H18V20A1,1 0 0,0 19,21H20A1,1 0 0,0 21,20V12L18.92,6.01M6.5,7H17.5L19,11H5L6.5,7M7,13A1,1 0 0,1 8,14A1,1 0 0,1 7,15A1,1 0 0,1 6,14A1,1 0 0,1 7,13M17,13A1,1 0 0,1 18,14A1,1 0 0,1 17,15A1,1 0 0,1 16,14A1,1 0 0,1 17,13Z"
+                      />
+                    </svg>
+                  </div>
+                  <span>Бесплатная парковка</span>
+                </div>
+
+                <div class="contact-feature">
+                  <div class="feature-icon-small">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M12,15C12.81,15 13.5,14.7 14.11,14.11C14.7,13.5 15,12.81 15,12C15,11.19 14.7,10.5 14.11,9.89C13.5,9.3 12.81,9 12,9C11.19,9 10.5,9.3 9.89,9.89C9.3,10.5 9,11.19 9,12C9,12.81 9.3,13.5 9.89,14.11C10.5,14.7 11.19,15 12,15M12,2C14.75,2 17.1,3 19.05,4.95C21,6.9 22,9.25 22,12V13.45C22,14.45 21.65,15.3 21,16C20.3,16.67 19.5,17 18.5,17C17.3,17 16.31,16.5 15.56,15.5C14.56,16.5 13.38,17 12,17C10.63,17 9.45,16.5 8.46,15.54C7.5,14.55 7,13.38 7,12C7,10.63 7.5,9.45 8.46,8.46C9.45,7.5 10.63,7 12,7C13.38,7 14.55,7.5 15.54,8.46C16.5,9.45 17,10.63 17,12V13.45C17,13.86 17.16,14.22 17.46,14.53C17.76,14.84 18.11,15 18.5,15C18.92,15 19.27,14.84 19.57,14.53C19.87,14.22 20,13.86 20,13.45V12C20,9.81 19.23,7.93 17.65,6.35C16.07,4.77 14.19,4 12,4C9.81,4 7.93,4.77 6.35,6.35C4.77,7.93 4,9.81 4,12C4,14.19 4.77,16.07 6.35,17.65C7.93,19.23 9.81,20 12,20H16V22H12C9.25,22 6.9,21 4.95,19.05C3,17.1 2,14.75 2,12C2,9.25 3,6.9 4.95,4.95C6.9,3 9.25,2 12,2Z"
+                      />
+                    </svg>
+                  </div>
+                  <span>Бесплатный Wi-Fi</span>
+                </div>
+
+                <div class="contact-feature">
+                  <div class="feature-icon-small">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M19,7H18V6A2,2 0 0,0 16,4H8A2,2 0 0,0 6,6V7H5A1,1 0 0,0 4,8V19A3,3 0 0,0 7,22H17A3,3 0 0,0 20,19V8A1,1 0 0,0 19,7M8,6H16V7H8V6M18,19A1,1 0 0,1 17,20H7A1,1 0 0,1 6,19V9H18V19Z"
+                      />
+                    </svg>
+                  </div>
+                  <span>Доставка и самовывоз</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contacts-map-column">
+            <div class="social-contacts">
+              <h4>Мы в социальных сетях</h4>
+              <div class="social-links">
+                <a
+                  href="https://t.me/bulochka_coffee"
+                  class="social-link telegram"
+                  target="_blank"
+                >
+                  <div class="social-link-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M9.78,18.65L10.06,14.42L17.74,7.5C18.08,7.19 17.67,7.04 17.22,7.31L7.74,13.3L3.64,12C2.76,11.75 2.75,11.14 3.84,10.7L19.81,4.54C20.54,4.21 21.24,4.72 20.96,5.84L18.24,18.65C18.05,19.56 17.5,19.78 16.74,19.36L12.6,16.3L10.61,18.23C10.38,18.46 10.19,18.65 9.78,18.65Z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="social-link-content">
+                    <span class="social-name">Telegram</span>
+                    <span class="social-desc">Новости и акции</span>
+                  </div>
+                </a>
+
+                <a
+                  href="https://vk.com/bulochka_coffee"
+                  class="social-link vk"
+                  target="_blank"
+                >
+                  <div class="social-link-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M15.07,2H8.93C3.33,2 2,3.33 2,8.93V15.07C2,20.67 3.33,22 8.93,22H15.07C20.67,22 22,20.67 22,15.07V8.93C22,3.33 20.67,2 15.07,2M18.06,16.58H16.5C15.84,16.58 15.65,16.08 14.59,15C13.78,14.17 13.27,14.06 13,14.06C12.68,14.06 12.6,14.14 12.6,14.57V15.87C12.6,16.21 12.5,16.58 11.74,16.58C10.15,16.58 8.39,15.61 7.14,13.83C5.32,11.33 4.78,9.35 4.78,8.93C4.78,8.65 4.86,8.4 5.29,8.4H6.85C7.2,8.4 7.33,8.56 7.5,9.03C8.26,11.05 9.45,12.83 10,12.83C10.24,12.83 10.32,12.75 10.32,12.3V10.44C10.27,9.33 9.69,9.24 9.69,8.93C9.69,8.7 9.88,8.4 10.18,8.4H12.32C12.65,8.4 12.78,8.56 12.78,8.91V11.87C12.78,12.2 12.94,12.33 13.06,12.33C13.3,12.33 13.5,12.2 13.9,11.8C14.95,10.7 15.68,9.05 15.68,9.05C15.81,8.75 15.97,8.4 16.37,8.4H17.93C18.35,8.4 18.46,8.63 18.35,8.91C18.17,9.5 16.55,11.77 16.55,11.77C16.35,12.08 16.27,12.22 16.55,12.58C16.76,12.85 17.39,13.4 17.73,13.77C18.36,14.44 18.84,15 18.97,15.45C19.1,15.9 18.88,16.58 18.06,16.58Z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="social-link-content">
+                    <span class="social-name">ВКонтакте</span>
+                    <span class="social-desc">Фото и события</span>
+                  </div>
+                </a>
+
+                <a
+                  href="https://instagram.com/bulochka_coffee"
+                  class="social-link instagram"
+                  target="_blank"
+                >
+                  <div class="social-link-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="social-link-content">
+                    <span class="social-name">Instagram</span>
+                    <span class="social-desc">Красивые фото</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2341.2903624659895!2d104.19582527730456!3d52.2843791719777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5da83bbd6b853e85%3A0xa70c14582d354eb!2z0JHQvtC70YzRiNCw0YHRgtC40Y8sIDE3Ni80LCDQmtC-0YDQvNCw0YDQvdCw0Y8g0L7QsdC70LDRgdGC0YwsINCn0YHRgtGA0L7QstCwLCA2NjQwNDA!5e0!3m2!1sru!2sru!4v1719313146556!5m2!1sru!2sru"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+
+            <div class="contact-actions">
+              <a
+                class="btn contact-btn"
+                href="https://www.google.com/maps/search/?api=1&query=Иркутск,+ул.+Розы+Люксембург,+176%2F4"
+                target="_blank"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"
+                  />
+                </svg>
+                Построить маршрут
+              </a>
+              <a class="btn contact-btn" href="tel:+79140001788">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"
+                  />
+                </svg>
+                Позвонить
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -514,19 +664,23 @@
         .then((snapshot) => {
           const data = snapshot.val();
           if (data) {
-            const open = data.open || '??';
-            const close = data.close || '??';
-            const text = data.text || '';
+            const open = data.open || '8';
+            const close = data.close || '21';
+            const text = data.text || 'Каждый день';
 
-            document.getElementById(
-              'working-hours'
-            ).textContent = `${text} с ${open}:00 до ${close}:00`;
-            document.getElementById(
-              'working-hours-text'
-            ).textContent = `${text} с ${open}:00 до ${close}:00`;
-            document.getElementById(
-              'working-hours-about'
-            ).textContent = `Каждое утро свежая выпечка и ароматный кофе ждут вас с ${open}:00 до ${close}:00.`;
+            // Обновляем элемент в hero секции
+            const heroElement = document.getElementById('working-hours-text');
+            if (heroElement) {
+              heroElement.textContent = `${text} с ${open}:00 до ${close}:00`;
+            }
+
+            // Обновляем элемент в контактах
+            const contactElement = document.getElementById(
+              'working-hours-contact'
+            );
+            if (contactElement) {
+              contactElement.textContent = `${text} с ${open}:00 до ${close}:00`;
+            }
           }
         })
         .catch((error) => {
