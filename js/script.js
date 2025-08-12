@@ -28,7 +28,6 @@ window.setupCartButtons = function () {
       }
 
       window.updateCart();
-      window.openCart();
     });
   });
 };
@@ -191,15 +190,20 @@ document.addEventListener('DOMContentLoaded', () => {
       menuItem.innerHTML = `
         <img src="${item.image}" alt="${item.name}" loading="lazy" 
             onclick="openImageModal('${item.image}', '${item.name}')">
-        <h3>${item.name}</h3>
-        <p class="item-weight">${item.weight || item.volume || ''}</p>
-        <p class="item-price">${item.price} ₽</p>
-        <button class="btn add-to-cart" 
-                data-id="${item.id}" 
-                data-name="${item.name}" 
-                data-price="${item.price}">
-            Добавить в корзину
-        </button>
+        <div class="menu-item-content">
+          <h3>${item.name}</h3>
+          <p>${item.description || ''}</p>
+          <div class="menu-item-details">
+            <p class="item-price">${item.price} ₽</p>
+            <p class="item-weight">${item.weight || item.volume || ''}</p>
+            <button class="btn add-to-cart" 
+                    data-id="${item.id}" 
+                    data-name="${item.name}" 
+                    data-price="${item.price}">
+                Добавить в корзину
+            </button>
+          </div>
+        </div>
       `;
       container.appendChild(menuItem);
     });
@@ -211,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (burgerDrinks && gridDrinks) {
     burgerDrinks.addEventListener('click', () => {
       gridDrinks.classList.toggle('open');
-      burgerDrinks.classList.toggle('active');
+      burgerDrinks.classList.toggle('open');
     });
   }
 
@@ -221,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (burgerFood && gridFood) {
     burgerFood.addEventListener('click', () => {
       gridFood.classList.toggle('open');
-      burgerFood.classList.toggle('active');
+      burgerFood.classList.toggle('open');
     });
   }
 

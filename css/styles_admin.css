@@ -1,42 +1,218 @@
 /* Основные стили админки */
-.admin-header {
-  background: linear-gradient(135deg, #d2691e, #b85c1d);
-  color: white;
-  padding: 1rem 0;
-  box-shadow: 0 4px 15px rgba(210, 105, 30, 0.3);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+.admin-page {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.admin-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+.admin-page .admin-header {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(210, 105, 30, 0.1) !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1001 !important;
+  padding: 0.5rem 0 !important;
+  min-height: 50px !important;
 }
 
-.admin-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 0.7rem 1.2rem;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: all 0.2s;
+.admin-page .admin-header .admin-nav {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0.5rem 1rem !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  min-height: 40px !important;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  background: transparent !important;
+  flex-direction: row !important;
+  left: auto !important;
+  box-shadow: none !important;
 }
 
-.admin-nav a:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-1px);
+.admin-header .admin-nav a {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  text-decoration: none !important;
+  color: #333 !important;
+  font-weight: 600 !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.admin-header .admin-nav a:hover {
+  background: rgba(210, 105, 30, 0.1) !important;
+  color: #d2691e !important;
 }
 
 .admin-container {
   max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 2rem;
-  animation: fadeIn 0.5s ease-out;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.admin-title {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 3rem 0 1.5rem 0;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.admin-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(135deg, #d2691e 0%, #e07b2b 100%);
+  border-radius: 2px;
+}
+
+.admin-title:first-child {
+  margin-top: 0;
+}
+
+/* Формы */
+.admin-form {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(210, 105, 30, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.admin-form:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #d2691e;
+  box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.1);
+  background: white;
+  transform: translateY(-1px);
+}
+
+.form-group select {
+  background-color: rgba(255, 255, 255, 0.9);
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10'%3E%3Cpath fill='%23d2691e' d='M7 10L0 0h14z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  cursor: pointer;
+}
+
+.form-group input[type='number'] {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.form-group input[type='text'] {
+  font-weight: 500;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(210, 105, 30, 0.1);
+}
+
+.special-drink-preview {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border: 2px dashed #dee2e6;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d;
+  font-style: italic;
+  transition: all 0.3s ease;
+}
+
+.special-drink-preview:not(:empty) {
+  border-style: solid;
+  border-color: rgba(210, 105, 30, 0.2);
+  background: linear-gradient(135deg, #fff9f2 0%, #ffffff 100%);
+}
+
+.special-drink-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Статус индикаторы */
+.status-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.status-active {
+  background: #28a745;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.4);
+}
+
+.status-inactive {
+  background: #dc3545;
+  box-shadow: 0 0 8px rgba(220, 53, 69, 0.4);
 }
 
 /* Сетка меню */
@@ -62,6 +238,10 @@
   border-color: #ffe5c7;
 }
 
+.admin-menu-item-name {
+  margin-right: 2rem;
+}
+
 .admin-menu-item img {
   width: 100%;
   height: 200px;
@@ -83,6 +263,7 @@
   font-size: 0.95rem;
   background: #fffdfa;
   transition: all 0.2s;
+  box-sizing: border-box;
 }
 
 .admin-menu-item-controls input:focus {
@@ -93,24 +274,33 @@
 
 /* Кнопки */
 .btn {
-  padding: 0.7rem 1.3rem;
+  padding: 0.8rem 1.5rem;
   border: none;
   border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.2s;
-  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .btn-primary {
-  background: linear-gradient(to right, #d2691e, #b85c1d);
+  background: linear-gradient(135deg, #d2691e 0%, #e07b2b 100%);
   color: white;
+  box-shadow: 0 4px 15px rgba(210, 105, 30, 0.3);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(to right, #b85c1d, #a0522d);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(210, 105, 30, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(210, 105, 30, 0.4);
+  filter: brightness(1.05);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(210, 105, 30, 0.3);
 }
 
 .btn-danger {
@@ -185,6 +375,17 @@
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes slideIn {
   from {
     transform: translateX(100%);
@@ -198,45 +399,94 @@
 
 /* Адаптивность */
 @media (max-width: 768px) {
-  .admin-nav {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 1rem;
+  .admin-header {header {
+    padding: 1rem 0;
+    min-height: 60px !important;
+  }
+
+  .admin-page .admin-header .admin-nav {
+    padding: 0.4rem 0.8rem !important;
+    min-height: 40px !important;
+  }
+
+  .admin-header .admin-nav a {
+    padding: 0.8rem 1rem !important;
+    font-size: 1rem !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .admin-container {
-    padding: 0 1rem;
+    padding: 1rem;
+  }
+
+  .admin-form {
+    padding: 1.5rem;
+  }
+
+  .admin-title {
+    font-size: 1.5rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
   }
 
   .admin-menu-grid {
     grid-template-columns: 1fr;
   }
 
-  .admin-title {
-    font-size: 1.8rem;
-  }
-
   .form-group label {
     font-size: 0.95rem;
-  }
-
-  .admin-form {
-    padding: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
+  .admin-header {
+    padding: 0.8rem 0;
+    min-height: 56px;
+  }
+
   .admin-nav {
+    padding: 0.3rem;
+    min-height: 40px;
+  }
+
+  .admin-header .admin-nav a {
+    padding: 0.1rem 0.2rem !important;
+    font-size: 0.9rem !important;
+    min-height: 40px !important;
+    gap: 0.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .admin-header .admin-nav a i {
+    font-size: 1rem !important;
+  }
+
+  .admin-container {
     padding: 0.8rem;
   }
 
-  .admin-nav a {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.9rem;
+  .admin-title {
+    font-size: 1.3rem;
+    margin: 2rem 0 1rem 0;
   }
 
-  .admin-title {
-    font-size: 1.5rem;
+  .admin-form {
+    padding: 1.2rem;
   }
 }
 
